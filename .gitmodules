@@ -1,0 +1,6 @@
+[submodule "lib/SimpleOfuscator/LZ77_c"]
+	path = lib/SimpleOfuscator/LZ77_c
+	url = https://github.com/desmonHak/LZ77_c
+[submodule "lib/SimpleOfuscator"]
+	path = lib/SimpleOfuscator
+	url = https://github.com/desmonHak/SimpleOfuscator.git
