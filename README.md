@@ -7,6 +7,13 @@ La salida se obtiene en un string dinamico, por lo que el usuario solo debe preo
 
 ----
 
+Use despues de la clonacion en el directorio principal:
+```bash
+git submodule update --init --recursive
+```
+
+----
+
 Codigo de ejemplo en C:
 
 ```c
