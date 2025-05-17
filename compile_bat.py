@@ -2,6 +2,8 @@ from os.path        import join
 from platform       import system
 from subprocess     import getoutput
 
+import string
+import random
 import argparse
 import re
 
@@ -137,7 +139,7 @@ def main():
         print(full_cmd)
 
 
-    password = "1234"
+    password = ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(16))
 
     shellcode = []
     if args.lz77 == True:

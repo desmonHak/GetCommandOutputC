@@ -17,7 +17,8 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="GetCommandOutputC" targetName="GetCommandOutputC" />
+      <config projectName="GetCommandOutputC" targetName="code" />
+      <config projectName="GetCommandOutputC" targetName="example_inline" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -27,30 +28,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a488018-546c-4c20-9204-1aac9acdf895" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build_env_bat.mk" beforeDir="false" afterPath="$PROJECT_DIR$/build_env_bat.mk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compile_bat.py" beforeDir="false" afterPath="$PROJECT_DIR$/compile_bat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.mk" beforeDir="false" afterPath="$PROJECT_DIR$/config.mk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general.mk" beforeDir="false" afterPath="$PROJECT_DIR$/general.mk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/GetCommandOutputC.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/GetCommandOutputC.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/SimpleOfuscator" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SimpleOfuscator" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/SimpleOfuscator/LZ77_c" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SimpleOfuscator/LZ77_c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/SimpleOfuscator/LZ77_c/general.mk" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SimpleOfuscator/LZ77_c/general.mk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/SimpleOfuscator/LZ77_c/linux.mk" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SimpleOfuscator/LZ77_c/linux.mk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/SimpleOfuscator/LZ77_c/windows.mk" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SimpleOfuscator/LZ77_c/windows.mk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/SimpleOfuscator/example/code.c" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SimpleOfuscator/example/code.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/SimpleOfuscator/general.mk" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SimpleOfuscator/general.mk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/SimpleOfuscator/include/SimpleOfuscator.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SimpleOfuscator/include/SimpleOfuscator.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/SimpleOfuscator/linux.mk" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SimpleOfuscator/linux.mk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/SimpleOfuscator/src/SimpleOfuscator.c" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SimpleOfuscator/src/SimpleOfuscator.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/SimpleOfuscator/windows.mk" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SimpleOfuscator/windows.mk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux.mk" beforeDir="false" afterPath="$PROJECT_DIR$/linux.mk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows.mk" beforeDir="false" afterPath="$PROJECT_DIR$/windows.mk" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +42,36 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -81,6 +90,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "CMake Application.example_inline.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.RadMigrateCodeStyle": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -90,6 +100,10 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -122,11 +136,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1747517382081</updated>
-      <workItem from="1747517383648" duration="67000" />
+      <workItem from="1747517383648" duration="846000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/example_inline.c</url>
+          <line>41</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
