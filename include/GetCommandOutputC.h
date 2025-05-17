@@ -1,6 +1,7 @@
 #ifndef GET_COMMAND_OUTPUT_C_H
 #define GET_COMMAND_OUTPUT_C_H
 
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

@@ -24,6 +24,10 @@ GLOBAL_CFLAGS = -std=c$(VESRION_C) $(INCLUDE_FLAGS) -masm=intel \
 
 CFLAGS 		  =  $(GLOBAL_CFLAGS) -O3 -Wno-unused-parameter \
 				-Wno-implicit-fallthrough -Wno-type-limits  \
-				-Wno-unused-variable -Wno-pointer-sign
+				-Wno-unused-variable -Wno-pointer-sign 		\
+				-Wl,--strip-all -Os -s -ffunction-sections 	\
+				-Wl,--gc-sections \
+				-fno-asynchronous-unwind-tables
+				
 ARR_FLAGS     = -rc
 OBJECTS = 	GetCommandOutputC.o

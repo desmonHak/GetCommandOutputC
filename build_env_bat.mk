@@ -71,6 +71,4 @@ all:
 	
 	@$(call CHECK_PROGRAM, python) || ($(PRINT)python no esta instalado, descargelo o configure en linux python con \"cp /bin/python3 /bin/python\" $(END_PRINT) $(AND_COMMAND) $(call EXIT_MAKE, 1))
 
-	$(CC) $(lib_lz77)$(P)lz77.c $(lib_lz77)$(P)code.c -o code.$(EXTENSION)
-
-	
+	$(MAKE) -C $(SimpleOfuscator) -f $(OS_NAME).mk 

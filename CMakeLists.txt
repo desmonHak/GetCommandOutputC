@@ -12,9 +12,28 @@ set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG  -D_ExceptionHandler")
 
 set(CMAKE_C_STANDARD 11)
 
-include_directories(include)
+include_directories(
+        include
+        lib/SimpleOfuscator/include
+        lib/SimpleOfuscator/LZ77_c/include
+)
 
 add_executable(code
         example/code.c
         include/GetCommandOutputC.h
-        src/GetCommandOutputC.c)
+        lib/SimpleOfuscator/include/SimpleOfuscator.h
+        lib/SimpleOfuscator/LZ77_c/include/lz77.h
+        lib/SimpleOfuscator/LZ77_c/src/lz77.c
+        lib/SimpleOfuscator/src/SimpleOfuscator.c
+        src/GetCommandOutputC.c
+)
+
+add_executable(example_inline
+        example_inline.c
+        include/GetCommandOutputC.h
+        lib/SimpleOfuscator/include/SimpleOfuscator.h
+        lib/SimpleOfuscator/LZ77_c/include/lz77.h
+        lib/SimpleOfuscator/LZ77_c/src/lz77.c
+        lib/SimpleOfuscator/src/SimpleOfuscator.c
+        src/GetCommandOutputC.c
+)

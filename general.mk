@@ -1,12 +1,15 @@
 include config.mk
 
-all: $(TARGET).a
+all: $(TARGET).a libSimpleOfuscator.a
 	ar -t $^
 	gcc $(CFLAGS) $(INCLUDE_FLAGS) $(PATH_EXAMPLES)/code.c $(LINKER_FLAGS) -o code.$(EXTENSION)
 
 $(TARGET).a: $(OBJECTS)
 	$(ARR) $(ARR_FLAGS) $@ $^
 	ranlib $@
+
+libSimpleOfuscator.a:
+	$(MAKE) -C ./$(PATH_SimpleOfuscator) -f $(MAKE_NAME)
 
 GetCommandOutputC.o: $(PATH_SRC)/GetCommandOutputC.c
 	$(CC) $(CFLAGS) -c $^ -o $@

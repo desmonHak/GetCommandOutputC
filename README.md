@@ -47,5 +47,10 @@ mingw32-make -f windows.mk
 ```
 make -f linux.mk
 ```
+----
+
+```bash
+python compile_bat.py --bat-name example.bat --show-commands
+```
 
 ----
