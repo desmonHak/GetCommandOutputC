@@ -5,7 +5,11 @@
 #include <string.h>
 #include <stdlib.h>
 
-
+#if defined __has_include
+#  if __has_include ("lib/LZ77_c/lz77.h")
+#    include "lib/LZ77_c/lz77.h"
+#  endif
+#endif
 
 /**
  * @brief Estructura para la creacion de un string dinamico

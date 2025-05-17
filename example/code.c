@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
     hara internamente por nosotros.
     */
 
-    GetStdoutFromCommand(&output, "ipconfig");
+    GetStdoutFromCommand(&output, "cmd /c \"if \"%ComputerName%\"==\"S1\" (echo SharedPath=//blah/blah) else (echo SharedPath=//some/path) & for %f in (*.txt) do echo Archivo: %f\" 2>&1");
     printf("%s\n", output.data);
     free_string_cmd(&output); /* es necesario librerar
     la memoria cuando ya no se vaya a seguir ejecutando
