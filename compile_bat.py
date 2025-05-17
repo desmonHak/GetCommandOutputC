@@ -85,7 +85,7 @@ class SimpleOfuscatorC():
         return [out, code_descompress]
 
 def main():
-    parser = argparse.ArgumentParser(description="Procesar archivo .bat y convertirlo a comando de una línea para cmd /c.")
+    parser = argparse.ArgumentParser(description="Generar un ejecutable desde un .bat.")
 
     parser.add_argument('--bat-name', type=str, required=True,
                         help='Nombre del archivo .bat a procesar.')

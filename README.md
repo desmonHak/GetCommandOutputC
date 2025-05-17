@@ -72,7 +72,7 @@ mingw32-make -f windows.mk cleanall
 F:\C\simple_bytecode\lib\GetCommandOutputC>python compile_bat.py -h
 usage: compile_bat.py [-h] --bat-name BAT_NAME [--lz77] [--show-commands] [--gen-exec] [--hidden-console] [--hidden-output]
 
-Procesar archivo .bat y convertirlo a comando de una línea para cmd /c.
+Generar un ejecutable desde un .bat.
 
 options:
   -h, --help           show this help message and exit
@@ -82,8 +82,6 @@ options:
   --gen-exec           generar un ejecutable con el bat.
   --hidden-console     generar un ejecutable con el bat pero que no se muestre la consola.
   --hidden-output      permite indicar que no se quiere ver la salida de la ejecuccion
-
-F:\C\simple_bytecode\lib\GetCommandOutputC>
 ```
 > Si se usa la flag `--lz77` se activara la compresion LZ77, esto nos permite comprimir los comandos en tiempo de compilacion y poder ahorrar algo de espacio y realizar la descompresion en tiempop de ejecucion.
 
