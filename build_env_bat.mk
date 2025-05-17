@@ -55,7 +55,7 @@ endif
 # $(PRINT)git no esta instalado$(END_PRINT); $(call QUIT 1);
 
 
-lib_lz77 = .$(P)lib$(P)LZ77_c
+SimpleOfuscator = .$(P)lib$(P)SimpleOfuscator
 
 CC = gcc -O2
 
@@ -66,7 +66,7 @@ all:
 	@git -h $(SEND_TO_NULL)
 	@$(call IF, $(GET_ERROR_CODE) $(NOT_EQUALS) 0, $(PRINT)git no esta instalado. descargelo$(END_PRINT) $(AND_COMMAND) $(call EXIT_MAKE, 1) )
 
-	@$(DIR) $(lib_lz77) $(SEND_TO_NULL)
+	@$(DIR) $(SimpleOfuscator) $(SEND_TO_NULL)
 	@$(call IF, $(GET_ERROR_CODE) $(NOT_EQUALS) 0, git submodule update --init --recursive )
 	
 	@$(call CHECK_PROGRAM, python) || ($(PRINT)python no esta instalado, descargelo o configure en linux python con \"cp /bin/python3 /bin/python\" $(END_PRINT) $(AND_COMMAND) $(call EXIT_MAKE, 1))
