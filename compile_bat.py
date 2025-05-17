@@ -139,7 +139,7 @@ def main():
         print(full_cmd)
 
 
-    password = ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(16))
+    password = ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(16)).replace('\\', '\\\\"').replace('"', '\\"')
 
     shellcode = []
     if args.lz77 == True:
