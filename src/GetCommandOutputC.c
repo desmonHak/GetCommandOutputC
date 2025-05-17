@@ -46,7 +46,7 @@ void GetStdoutFromCommand(string_cmd *output, char* cmd) {
     memcpy(cmd_, cmd, strlen(cmd));
     memcpy(cmd_ + strlen(cmd), " 2>&1", sizeof(" 2>&1"));
 
-    printf("command : %s\n", cmd_);
+    //printf("command : %s\n", cmd_);
 
     FILE *stream = popen(cmd_, "r");
     if (stream) {

@@ -99,11 +99,17 @@ def main():
     parser.add_argument('--gen-exec', action='store_true',
                         help='generar un ejecutable con el bat.')
     
-    parser.add_argument('--hidden-console', action='store_false',
+    parser.add_argument('--hidden-console', action='store_true',
                     help='generar un ejecutable con el bat pero que no se muestre por consola.')
+    
+    parser.add_argument('--hidden-output', action='store_true',
+                    help="permite indicar que no se quiere ver la salida de la ejecuccion")
+
+    parser.set_defaults(lz77=False)
 
     args = parser.parse_args()
 
+    print(f"hidden_console: {args.hidden_console}")
     print("Nombre del .bat:", args.bat_name)
     print("Compresión LZ77 activada:", args.lz77)
     print("Mostrar comandos:", args.show_commands)
@@ -130,20 +136,22 @@ def main():
         print("\nComando en una línea para cmd:")
         print(full_cmd)
 
-    # Instancias la clase para ofuscar
-    ofus = SimpleOfuscatorC()
-    f_output = args.bat_name.replace(".", "_compress.")
 
     password = "1234"
 
-    # en el indice 0 la salida de la compresion, en el 1 los datos generados
-    output = ofus.compress(args.bat_name, f_output, password)
-    print(output[0])
-
-    # preparar los datos para generar el codigo C de saldia
     shellcode = []
-    for byte in output[1]:
-        shellcode.append(f"0x{byte:02x},")
+    if args.lz77 == True:
+        # Instancias la clase para ofuscar
+        ofus = SimpleOfuscatorC()
+        f_output = args.bat_name.replace(".", "_compress.")
+
+        # en el indice 0 la salida de la compresion, en el 1 los datos generados
+        output = ofus.compress(args.bat_name, f_output, password)
+        print(output[0])
+
+        # preparar los datos para generar el codigo C de saldia
+        for byte in output[1]:
+            shellcode.append(f"0x{byte:02x},")
 
 
     data_output =   f"""
@@ -153,25 +161,77 @@ def main():
 
 #include "SimpleOfuscator.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#ifdef _WIN32
+#   include <windows.h>
+#   define _WIN32_WINNT 0x0500
+#endif
+
 #define ORG_SIZE {size_org_bath_file}
 #define PASSWORD "{password}"
-int main(int argc, char const *argv[])"""+" {\n#define ARR(...) { __VA_ARGS__ }" + f"""
+#if defined(_WIN32) && defined(HIDDEN_CMD)
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+#else
+int main(int argc, char const *argv[])
+#endif
+"""+" {\n#define ARR(...) { __VA_ARGS__ }" + f"""
+    #ifdef _WIN32
+    #   ifdef HIDDEN_CMD
+            HWND hWnd = GetConsoleWindow();
+            ShowWindow( hWnd, SW_MINIMIZE );  
+            ShowWindow( hWnd, SW_HIDE );
+    #   endif
+    #endif
+
     string_cmd output = ARR(0);
     
+    #ifdef COMPESS_LZ77
+        uint8_t shellcode[] = ARR({" ".join(shellcode)});
+        size_t size_out = 0;
+        string_cmd command;
 
-    uint8_t shellcode[] = ARR({" ".join(shellcode)});
-    size_t size_out = 0;
-    string_cmd command;
+        desofuc(shellcode, sizeof(shellcode), PASSWORD, strlen(PASSWORD), (uint8_t**)&command.data, &command.size_buff);
 
-    desofuc(shellcode, sizeof(shellcode), PASSWORD, strlen(PASSWORD), (uint8_t**)&command.data, &command.size_buff);
+        command.data = (char*)realloc(command.data, command.size_buff);
+        command.data[command.size_buff] = 0;
 
-    command.data = (char*)realloc(command.data, command.size_buff);
-    command.data[command.size_buff] = 0;
+    #   ifdef SHOW_COMMANDS_EXEC
+        printf("Commands: %s\\n", command.data);
+    #   endif
 
-    GetStdoutFromCommand(&output, command.data);
-    printf("%s\\n", output.data);
+        GetStdoutFromCommand(&output, command.data);
+    #else
+        char* command = "{oneline_cmd.replace('"', '\\"')}";
+
+    #   ifdef SHOW_COMMANDS_EXEC
+        printf("Commands: %s\\n", command);
+    #   endif
+
+        GetStdoutFromCommand(&output, command);
+    #endif 
+
+    #ifndef HIDDEN_OUTPUT_COMMANDS
+        printf("%s\\n", output.data);
+    #endif
+
     return 0;
 """ + "}"
+    
+    prefix_defines = []
+    if args.hidden_console:
+        prefix_defines.append("#define HIDDEN_CMD")
+    if args.lz77:
+        prefix_defines.append("#define COMPESS_LZ77") 
+    if args.hidden_output:
+        prefix_defines.append("#define HIDDEN_OUTPUT_COMMANDS") 
+    if args.show_commands:
+        prefix_defines.append("#define SHOW_COMMANDS_EXEC") 
+
+    data_output = "\n".join(prefix_defines) + ("\n" if prefix_defines else "") + data_output
+
+        
     print(data_output)
 
     with open(args.bat_name.replace(".bat", ".c"), "w") as f:
@@ -182,7 +242,7 @@ int main(int argc, char const *argv[])"""+" {\n#define ARR(...) { __VA_ARGS__ }"
 
     with open("general.mk", "r") as file_org:
         replaced = file_org.read().replace("code", args.bat_name.split(".")[0])
-        replaced = replaced.replace("$(PATH_EXAMPLES)/", "")
+        replaced = replaced.replace("$(PATH_EXAMPLES)/", ["", "-mwindows "][args.hidden_console == True])
         replaced = replaced.replace(".$(EXTENSION)", [".elf", ".exe"][system() == "Windows"])
         replaced = replaced.replace("$(MAKE_NAME)", ["linux.mk", "windows.mk"][system() == "Windows"])
 
