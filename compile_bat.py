@@ -91,7 +91,7 @@ def main():
                         help='Nombre del archivo .bat a procesar.')
 
     parser.add_argument('--lz77', action='store_true',
-                        help='Activar compresión LZ77 (no usado aquí, solo ejemplo).')
+                        help='Activar compresión LZ77')
 
     parser.add_argument('--show-commands', action='store_true',
                         help='Mostrar el comando convertido.')
@@ -100,7 +100,7 @@ def main():
                         help='generar un ejecutable con el bat.')
     
     parser.add_argument('--hidden-console', action='store_true',
-                    help='generar un ejecutable con el bat pero que no se muestre por consola.')
+                    help='generar un ejecutable con el bat pero que no se muestre la consola.')
     
     parser.add_argument('--hidden-output', action='store_true',
                     help="permite indicar que no se quiere ver la salida de la ejecuccion")
@@ -165,8 +165,8 @@ def main():
 #include <stdlib.h>
 #include <time.h>
 #ifdef _WIN32
-#   include <windows.h>
 #   define _WIN32_WINNT 0x0500
+#   include <windows.h>
 #endif
 
 #define ORG_SIZE {size_org_bath_file}
