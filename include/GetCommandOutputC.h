@@ -53,4 +53,16 @@ static inline void free_string_cmd(string_cmd *output) {
     }
 }
 
+int resize_string_cmd(string_cmd *s, size_t extra);
+
+/**
+ * Formatear la línea para que se ejecute correctamente como comando,
+ * escapando correctamente las barras invertidas.
+ * 
+ * @param input Línea original
+ * @param formatted Resultado procesado
+ * @return 0 si no se modificó, 1 si se modificó
+ */
+int format_command_line(const char *input, string_cmd *formatted);
+
 #endif // GET_COMMAND_OUTPUT_C_H

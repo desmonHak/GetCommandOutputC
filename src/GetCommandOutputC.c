@@ -4,6 +4,29 @@
 #include "GetCommandOutputC.h"
 
 /**
+ * Redimensionar un string_cmd si su tamaño usado más extra supera el buffer actual.
+ * 
+ * @param s       Puntero al string_cmd
+ * @param extra   Bytes adicionales requeridos
+ * @return        0 en éxito, -1 si falla
+ */
+int resize_string_cmd(string_cmd *s, size_t extra) {
+    if (s->use_size_buff + extra <= s->size_buff) return 0;
+
+    size_t old_size = s->size_buff;
+    while (s->use_size_buff + extra > s->size_buff) {
+        s->size_buff *= 2;
+    }
+
+    char *temp = realloc(s->data, s->size_buff);
+    if (!temp) return -1;
+
+    s->data = temp;
+    memset(s->data + old_size, 0, s->size_buff - old_size);
+    return 0;
+}
+
+/**
  * @brief Obtener salida de un commando del cmd o shell
  * 
  * @param output puntero donde almacenar la salida del comando. 
@@ -99,6 +122,38 @@ void GetStdoutFromCommand(string_cmd *output, char* cmd) {
 
     // liberar comando final
     free(cmd_);
+}
+
+
+/**
+ * Formatear la línea para que se ejecute correctamente como comando,
+ * escapando correctamente las barras invertidas.
+ * 
+ * @param input Línea original
+ * @param formatted Resultado procesado
+ * @return 0 si no se modificó, 1 si se modificó
+ */
+int format_command_line(const char *input, string_cmd *formatted) {
+    free_string_cmd(formatted);
+    *formatted = init_string_cmd(strlen(input) + 1);
+
+    if (!formatted->data) return -1;
+
+    int changed = 0;
+    for (size_t i = 0; input[i]; ++i) {
+        if (resize_string_cmd(formatted, 2) != 0) return -1;
+
+        if (input[i] == '\\') {
+            // Escapar la barra invertida
+            formatted->data[formatted->use_size_buff++] = '\\';
+            formatted->data[formatted->use_size_buff++] = '\\';
+            changed = 1;
+        } else {
+            formatted->data[formatted->use_size_buff++] = input[i];
+        }
+    }
+    formatted->data[formatted->use_size_buff] = '\0';
+    return changed;
 }
 
 #endif // GET_COMMAND_OUTPUT_C_C
